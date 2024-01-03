@@ -2,7 +2,7 @@
 import random
 number = random.randint(-10000, 10000)
 last = abs(number) % 10
-if last < 0:
+if number < 0:
    last = -last
 if last == 0:
     print("Last digit of {} is {} and is zero ".format(number, last))
