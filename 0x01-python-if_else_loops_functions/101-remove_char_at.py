@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-def remove_char_at(str, n):
+def remove_char_at(s, n):
     new_string = ""
-    for i in range(len(string)):
+    for i in range(len(s)):
         if i != n:
-            new_string += string[i]
+            new_string += s[i]
     return new_string
