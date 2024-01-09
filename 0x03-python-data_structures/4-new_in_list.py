@@ -6,4 +6,4 @@ def new_in_list(my_list, idx, element):
     # Create a copy of the original list
     new_list[idx] = element
     # Replace the element at the specified index in the new list
-    return modified_list
+    return new_list
