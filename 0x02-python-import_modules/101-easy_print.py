@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-exec("chr = __builtins__.__dict__['chr']; print(chr(35) + 'pythoniscool')")
+import builtins; builtins.__dict__['_'*6+'_'*6].__doc__='\x23pythoniscool\n'
