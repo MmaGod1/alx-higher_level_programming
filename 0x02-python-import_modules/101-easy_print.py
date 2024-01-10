@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-exec('print("#pythoniscool")')
+exec("chr = __builtins__.__dict__['chr']; print(chr(35) + 'pythoniscool')")
