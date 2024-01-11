@@ -12,8 +12,8 @@ if __name__ == "__main__":
             print("Unknown operator. Available operators: +, -, * and /")
             sys.exit(1)
 
-            a = int(sys.argv[1])
-            b = int(sys.argv[3])
-            result = ops[sys.argv[2]](a, b)
-            output_format = "{} {} {} = {}".format(a, sys.argv[2], b, result)
-            print(output_format)
+        a = int(sys.argv[1])
+        b = int(sys.argv[3])
+        result = ops[sys.argv[2]](a, b)
+        output_format = "{} {} {} = {}".format(a, sys.argv[2], b, result)
+        print(output_format)
