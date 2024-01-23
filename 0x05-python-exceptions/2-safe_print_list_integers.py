@@ -7,7 +7,7 @@ def safe_print_list_integers(my_list=[], x=0):
             if isinstance(value, int):
                 print("{:d} ".format(value), end='')
                 count += 1
-    except (IndexError, ValueError, TypeError):
+    except Exception:
         pass
     finally:
         print()
