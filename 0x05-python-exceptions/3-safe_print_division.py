@@ -1,15 +1,9 @@
 #!/usr/bin/python3
 def safe_print_division(a, b):
     try:
-        result = a / b
-    except ZeroDivisionError:
-        print("Error: Division by zero")
-        return None
-    except TypeError:
-        print("Error: Both inputs must be integers")
-        return None
-    else:
-        return result
+        div = a / b
+    except (TypeError, ZeroDivisionError):
+        div = None
     finally:
-        print("Inside result: {}".format(result) if 'result' in locals()
-              else "No result available")
+        print("Inside result: {}".format(div))
+    return (div)
