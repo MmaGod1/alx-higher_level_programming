@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+"""This module defines a simple rectangle class."""
 
 
 class Rectangle:
@@ -7,7 +7,7 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         """Initializes a Rectangle instance.
 
-       
+
        Args:
        width (int): The width of the rectangle. Default is 0.
        height (int): The height of the rectangle. Default is 0.
