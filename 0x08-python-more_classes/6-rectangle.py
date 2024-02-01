@@ -5,6 +5,7 @@
 class Rectangle:
     """Defines a rectangle with width and height attributes."""
     number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """Initializes a Rectangle instance with optional width and height."""
         self.width = width
@@ -16,7 +17,6 @@ class Rectangle:
         """Retrieve the width of the rectangle."""
         return self.__width
 
-    
     @width.setter
     def width(self, value):
         """Set the width of the rectangle."""
@@ -46,10 +46,13 @@ class Rectangle:
 
         def perimeter(self):
             """Calculate the perimeter of the rectangle."""
-            return 2 * (self.width + self.height) if self.width != 0 and self.height != 0 else 0
+            if self.width != 0 and self.height != 0:
+                return 2 * (self.width + self.height)
+            else:
+                return 0
 
         def __str__(self):
-            """Return a string representation of the rectangle using # characters."""
+            """Return a string representation of the rectangle using #."""
             if self.width == 0 or self.height == 0:
                 return ""
             return '\n'.join(['#' * self.width] * self.height)
@@ -59,6 +62,6 @@ class Rectangle:
             return f"Rectangle({self.width}, {self.height})"
 
         def __del__(self):
-            """Print a message when an instance of Rectangle is deleted and decrement the number_of_instances attribute."""
+            """Print a message when an instance of Rectangle is deleted..."""
             print("Bye rectangle...")
             Rectangle.number_of_instances -= 1
