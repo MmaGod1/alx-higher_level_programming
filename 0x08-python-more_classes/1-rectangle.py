@@ -8,13 +8,12 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         """Initializes a Rectangle instance.
 
-
-       Args:
-        width (int): The width of the rectangle. Default is 0.
-        height (int): The height of the rectangle. Default is 0.
-       """
-       self.width = width
-       self.height = height
+        Args:
+            width (int): The width of the rectangle. Default is 0.
+            height (int): The height of the rectangle. Default is 0
+        """
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -28,7 +27,7 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-    self.__width = value
+        self.__width = value
 
     @property
     def height(self):
