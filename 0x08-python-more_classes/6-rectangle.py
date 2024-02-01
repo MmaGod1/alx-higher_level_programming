@@ -46,16 +46,18 @@ class Rectangle:
 
         def perimeter(self):
             """Calculate the perimeter of the rectangle."""
-            if self.width != 0 and self.height != 0:
-                return 2 * (self.width + self.height)
-            else:
+            if self.width == 0 or self.height == 0:
                 return 0
+            return 2 * (self.width + self.height)
 
         def __str__(self):
             """Return a string representation of the rectangle using #."""
             if self.width == 0 or self.height == 0:
                 return ""
-            return '\n'.join(['#' * self.width] * self.height)
+            rectangle_str = ""
+            for _ in range(self.height):
+                rectangle_str += "#" * self.width + "\n"
+                return rectangle_str[:-1]
 
         def __repr__(self):
             """Return a string representation of the rectangle."""
@@ -63,5 +65,5 @@ class Rectangle:
 
         def __del__(self):
             """Print a message when an instance of Rectangle is deleted..."""
-            print("Bye rectangle...")
             Rectangle.number_of_instances -= 1
+            print("Bye rectangle...")
