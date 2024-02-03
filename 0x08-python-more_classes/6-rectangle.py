@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """Defines a Rectangle class."""
 
+
 class Rectangle:
     """Defines a rectangle with width and height attributes."""
+
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
@@ -32,12 +34,12 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-         """Set the height of the rectangle."""
-         if not isinstance(value, int):
-             raise TypeError("height must be an integer")
-         elif value < 0:
-             raise ValueError("height must be >= 0")
-         self.__height = value
+        """Set the height of the rectangle."""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        elif value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
 
     def area(self):
         """Calculate the area of the rectangle."""
