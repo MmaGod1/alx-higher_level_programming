@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Defines a Rectangle class."""
 
-
 class Rectangle:
     """Defines a rectangle with width and height attributes."""
     number_of_instances = 0
@@ -57,7 +56,7 @@ class Rectangle:
         rectangle_str = ""
         for _ in range(self.height):
             rectangle_str += "#" * self.width + "\n"
-            return rectangle_str[:-1]
+        return rectangle_str[:-1]
 
     def __repr__(self):
         """Return a string representation of the rectangle."""
