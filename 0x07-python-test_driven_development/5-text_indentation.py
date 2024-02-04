@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a function to print text with indentation."""
+"""Defines a text-indentation function."""
 
 
 def text_indentation(text):
@@ -13,25 +13,17 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    index = 0
+    i = 0
+    while i < len(text) and text[i] == ' ':
+        i += 1
 
-    while index < len(text):
-        # Skip leading spaces
-        while index < len(text) and text[index] == ' ':
-            index += 1
-
-        # Check if we've reached the end of the text
-        if index == len(text):
-            break
-
-        print(text[index], end='')
-
-        # Check for newline or specified punctuation marks
-        if text[index] in ['.', '?', ':']:
-            print('\n\n', end='')
-            index += 1
-        elif text[index] == '\n':
-            print("", end='')
-            index += 1
-        else:
-            index += 1
+    while i < len(text):
+        print(text[i], end="")
+        if text[i] == "\n" or text[i] in ".?:":
+            if text[i] in ".?:":
+                print("\n")
+            i += 1
+            while i < len(text) and text[i] == ' ':
+                i += 1
+            continue
+        i += 1
