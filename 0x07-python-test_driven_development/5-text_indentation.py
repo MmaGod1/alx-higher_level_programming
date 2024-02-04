@@ -28,6 +28,7 @@ def text_indentation(text):
     for char in text:
         new_line += char
         if char in split_chars:
-            print(new_line.strip())  # Remove leading and trailing whitespaces
-            print()  # Print two empty lines
-            new_line = ""  # Reset the line
+            print(new_line.strip())
+            print()
+            # Reset the line
+            new_line = ""
