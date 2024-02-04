@@ -11,25 +11,21 @@ def text_indentation(text):
         TypeError: If text is not a string.
     """
     # Check if text is a string
-    if not isinstance(text, str):
-        raise TypeError("text must be a string")
+    if type(text) is not str:
+        raise TypeError("Input must be a string")
 
-    # Define characters to split the text
-    split_chars = ['.', '?', ':']
+    index = 0
 
-    # Iterate through the text
-    for char in text:
-        # Print characters without space at the beginning
-        if char != ' ':
-            print(char, end='')
-        
-        # Print newline if the character is a split character
-        if char in split_chars:
-            print('\n')
-        elif char == '\n':
+    # Skip leading spaces
+    while index < len(text) and text[index] == ' ':
+        index += 1
+
+    while index < len(text):
+        print(text[index], end='')
+
+        if text[index] in ['.', '?', ':']:
+            print('\n\n', end='')
+        elif text[index] == '\n':
             # Ensure no space at the beginning of the line after newline
             print("", end='')
-
-# Test the function
-text = "This is a test. Hello, how are you? I'm fine, thank you."
-text_indentation(text)
+        index += 1
