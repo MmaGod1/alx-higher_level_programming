@@ -3,32 +3,26 @@
 
 
 def text_indentation(text):
-    """
-    Print text with indentation.
-
-    Args:
-        text (str): The text to be printed.
-
-    Returns:
-        None
-
-    Raises:
-        TypeError: If text is not a string.
-    """
+    # Check if text is a string
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
     # Define characters to split the text
     split_chars = ['.', '?', ':']
 
-    # Initialize an empty line
-    new_line = ""
-
-    # Print text with indentation
+    # Iterate through the text
     for char in text:
-        new_line += char
+        # Print characters without space at the beginning
+        if char != ' ':
+            print(char, end='')
+        
+        # Print newline if the character is a split character
         if char in split_chars:
-            print(new_line.strip())
-            print()
-            # Reset the line
-            new_line = ""
+            print('\n')
+        elif char == '\n':
+            # Ensure no space at the beginning of the line after newline
+            print("", end='')
+
+# Test the function
+text = "This is a test. Hello, how are you? I'm fine, thank you."
+text_indentation(text)
