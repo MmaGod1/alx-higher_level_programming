@@ -31,27 +31,35 @@ def matrix_mul(m_a, m_b):
     if not all(isinstance(row, list) for row in m_b):
         raise TypeError("m_b must be a list of lists")
 
-    if not all(isinstance(ele, (int, float)) for row in m_a for ele in row):
+    if not all((isinstance(ele, int) or isinstance(ele, float))
+               for ele in [num for row in m_a for num in row]):
         raise TypeError("m_a should contain only integers or floats")
-    if not all(isinstance(ele, (int, float)) for row in m_b for ele in row):
+    if not all((isinstance(ele, int) or isinstance(ele, float))
+               for ele in [num for row in m_b for num in row]):
         raise TypeError("m_b should contain only integers or floats")
 
     if not all(len(row) == len(m_a[0]) for row in m_a):
-        raise TypeError("each row of m_a must be of the same size")
+        raise TypeError("each row of m_a must should be of the same size")
     if not all(len(row) == len(m_b[0]) for row in m_b):
-        raise TypeError("each row of m_b must be of the same size")
+        raise TypeError("each row of m_b must should be of the same size")
 
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
-    # Matrix multiplication logic
-    inverted_b = [[m_b[j][i] for j in range(len(m_b))] for i in range(len(m_b[0]))]
+    inverted_b = []
+    for r in range(len(m_b[0])):
+        new_row = []
+        for c in range(len(m_b)):
+            new_row.append(m_b[c][r])
+        inverted_b.append(new_row)
 
     new_matrix = []
     for row in m_a:
         new_row = []
         for col in inverted_b:
-            prod = sum(row[i] * col[i] for i in range(len(inverted_b[0])))
+            prod = 0
+            for i in range(len(inverted_b[0])):
+                prod += row[i] * col[i]
             new_row.append(prod)
         new_matrix.append(new_row)
 
