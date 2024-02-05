@@ -1,38 +1,24 @@
 #!/usr/bin/python3
-"""Defines a matrix division function."""
+"""Defines a function to print the name with the specified first and last name."""
 
 
-def matrix_divided(matrix, div):
-    """Divide all elements of a matrix.
+def say_my_name(first_name, last_name=""):
+    """
+    Print the name with the specified first and last name.
 
     Args:
-        matrix (list): A list of lists of ints or floats.
-        div (int/float): The divisor.
-
-    Raises:
-        TypeError: If the matrix contains non-numbers.
-        TypeError: If the matrix contains rows of different sizes.
-        TypeError: If div is not an int or float.
-        ZeroDivisionError: If div is 0.
+        first_name (str): The first name to be printed.
+        last_name (str, optional): The last name to be printed. Defaults to "".
 
     Returns:
-        A new matrix representing the result of the division.
+        None
+
+    Raises:
+        TypeError: If first_name or last_name is not a string.
     """
-
-    if (not isinstance(matrix, list) or matrix == [] or
-            not all(isinstance(row, list) for row in matrix) or
-            not all((isinstance(ele, int) or isinstance(ele, float))
-                    for ele in [num for row in matrix for num in row])):
-        raise TypeError("matrix must be a matrix (list of lists) of "
-                        "integers/floats")
-
-    if not all(len(row) == len(matrix[0]) for row in matrix):
-        raise TypeError("Each row of the matrix must have the same size")
-
-    if not isinstance(div, int) and not isinstance(div, float):
-        raise TypeError("div must be a number")
-
-    if div == 0:
-        raise ZeroDivisionError("division by zero")
-
-    return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])
+    if not isinstance(first_name, str):
+        raise TypeError("first_name must be a string")
+    if not isinstance(last_name, str):
+        raise TypeError("last_name must be a string")
+    # Print the name
+    print("My name is {} {}".format(first_name, last_name))
