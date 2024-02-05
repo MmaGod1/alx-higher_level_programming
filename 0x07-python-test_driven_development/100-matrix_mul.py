@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a function to multiply two matrices."""
 
+
 def matrix_mul(m_a, m_b):
     """
     Multiply two matrices.
@@ -13,7 +14,8 @@ def matrix_mul(m_a, m_b):
         list of lists: Result of the matrix multiplication.
 
     Raises:
-        TypeError: If m_a or m_b is not a list, not a list of lists, or not a rectangle.
+        TypeError: If m_a or m_b is not a list, not a list of lists,
+        or not a rectangle.
         ValueError: If m_a or m_b is empty or if matrices can't be multiplied.
     """
     if m_a == [] or m_a == [[]]:
