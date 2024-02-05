@@ -16,7 +16,8 @@ def matrix_mul(m_a, m_b):
     Returns:
         A new matrix representing the multiplication of m_a by m_b.
     """
-    # Check if m_a or m_b is not a list
+    def matrix_mul(m_a, m_b):
+    # Validate m_a and m_b
     if not isinstance(m_a, list) or not isinstance(m_b, list):
         raise TypeError("m_a must be a list or m_b must be a list")
 
@@ -35,6 +36,7 @@ def matrix_mul(m_a, m_b):
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
+    # Perform matrix multiplication
     result = [[0] * len(m_b[0]) for _ in range(len(m_a))]
 
     for i in range(len(m_a)):
