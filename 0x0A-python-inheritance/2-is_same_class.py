@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a function that checks if type(obj) = class."""
 
+
 def is_same_class(obj, a_class):
     """Check if an object is exactly an instance of a given class.
 
