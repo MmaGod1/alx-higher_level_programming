@@ -3,7 +3,7 @@
 
 
 class BaseGeometry:
-    """Reprsent base geometry."""
+    """Represent base geometry."""
 
     def area(self):
         """Not yet implemented."""
@@ -48,9 +48,6 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         return f"[Rectangle] {self.__width}/{self.__height}"
 
-    def print(self):
-        print(str(self))
-
 class Square(Rectangle):
     """Represent a square."""
 
@@ -60,9 +57,7 @@ class Square(Rectangle):
         Args:
             size (int): The size of the new square.
         """
-        self.integer_validator("size", size)
         super().__init__(size, size)
-        self.__size = size
 
-      def area(self):
-        return self.__size * self.__size
+    def area(self):
+        return self.__width * self.__width
