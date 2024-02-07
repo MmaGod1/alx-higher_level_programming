@@ -35,7 +35,6 @@ class Rectangle(BaseGeometry):
             width (int): The width of the new Rectangle.
             height (int): The height of the new Rectangle.
         """
-        super().integer_validator("width", width)
+        super().__init__()
         self.__width = width
-        super().integer_validator("height", height)
         self.__height = height
