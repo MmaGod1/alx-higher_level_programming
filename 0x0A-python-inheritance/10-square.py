@@ -35,20 +35,20 @@ class Rectangle(BaseGeometry):
             width (int): The width of the new Rectangle.
             height (int): The height of the new Rectangle.
         """
-        super().integer_validator("width", width)
+        super().__init__()
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
         self.__width = width
-        super().integer_validator("height", height)
         self.__height = height
 
     def area(self):
-        """Return the area of the rectangle."""
+        """Calculate the area of the Rectangle."""
         return self.__width * self.__height
 
     def __str__(self):
-        """Return the print() and str() representation of a Rectangle."""
-        string = "[" + str(self.__class__.__name__) + "] "
-        string += str(self.__width) + "/" + str(self.__height)
-        return string
+        """Return the string representation of the Rectangle."""
+        return f"[Rectangle] {self.__width}/{self.__height}"
+
 
 class Square(Rectangle):
     """Represent a square."""
