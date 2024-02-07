@@ -26,7 +26,7 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """Represent a rectangle using BaseGeometry."""           
+    """Represent a rectangle using BaseGeometry."""
 
     def __init__(self, width, height):
         """Intialize a new Rectangle.
