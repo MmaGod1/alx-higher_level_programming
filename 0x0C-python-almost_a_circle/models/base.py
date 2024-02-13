@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Module for Base class."""
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -45,9 +47,49 @@ class Base:
     def create(cls, **dictionary):
         """Create instance with attributes set from dictionary."""
         if cls.__name__ == "Rectangle":
-            dummy_instance = cls(1, 1)
+            dummy_instance = cls(1, 1)  # Dummy Rectangle instance
         elif cls.__name__ == "Square":
-            dummy_instance = cls(1)
+            dummy_instance = cls(1)  # Dummy Square instance
 
-        dummy_instance.update(**dictionary)
+        dummy_instance.update(**dictionary)  # Update attributes using dictionary
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """Return list of instances from file."""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, 'r') as file:
+                data = file.read()
+                dictionaries = cls.from_json_string(data)
+                return [cls.create(**dictionary) for dictionary in dictionaries]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serialize list_objs to CSV file."""
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as file:
+            writer = csv.writer(file)
+            if cls.__name__ == "Rectangle":
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+            elif cls.__name__ == "Square":
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserialize instances from CSV file."""
+        filename = cls.__name__ + ".csv"
+        instances = []
+        with open(filename, 'r') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                if cls.__name__ == "Rectangle":
+                    instance = cls(int(row[1]), int(row[2]), int(row[3]), int(row[4]), int(row[0]))
+                elif cls.__name__ == "Square":
+                    instance = cls(int(row[1]), int(row[2]), int(row[3]), int(row[0]))
+                instances.append(instance)
+        return instances
