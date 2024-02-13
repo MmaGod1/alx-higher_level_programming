@@ -93,3 +93,38 @@ class Base:
                     instance = cls(int(row[1]), int(row[2]), int(row[3]), int(row[0]))
                 instances.append(instance)
         return instances
+
+     @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw all the Rectangles and Squares."""
+        screen = turtle.Screen()
+        screen.setup(width=800, height=600)
+        screen.title("Drawing Rectangles and Squares")
+
+        # Draw Rectangles
+        for rectangle in list_rectangles:
+            turtle.penup()
+            turtle.goto(rectangle.x, rectangle.y)
+            turtle.pendown()
+            turtle.color("blue")  # Example color
+            turtle.begin_fill()
+            for _ in range(2):
+                turtle.forward(rectangle.width)
+                turtle.right(90)
+                turtle.forward(rectangle.height)
+                turtle.right(90)
+            turtle.end_fill()
+
+        # Draw Squares
+        for square in list_squares:
+            turtle.penup()
+            turtle.goto(square.x, square.y)
+            turtle.pendown()
+            turtle.color("red")  # Example color
+            turtle.begin_fill()
+            for _ in range(4):
+                turtle.forward(square.size)
+                turtle.right(90)
+            turtle.end_fill()
+
+        turtle.done()
