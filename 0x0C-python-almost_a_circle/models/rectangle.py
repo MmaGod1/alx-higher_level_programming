@@ -69,3 +69,43 @@ class Rectangle(Base):
         elif value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """Calculate and return the area of the Rectangle."""
+        return self.__width * self.__height
+
+    def display(self):
+        """Print the Rectangle instance with # characters."""
+        for _ in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
+
+    def update(self, *args, **kwargs):
+        """Assign arguments to attributes.
+
+        Args:
+            *args (ints): New attribute values.
+                - 1st argument represents id attribute
+                - 2nd argument represents width attribute
+                - 3rd argument represent height attribute
+                - 4th argument represents x attribute
+                - 5th argument represents y attribute
+                **kwargs (dict): New key/value pairs of attributes.
+        """
+        if len(args) > 0:
+            self.id = args[0]
+        if len(args) > 1:
+            self.width = args[1]
+        if len(args) > 2:
+            self.height = args[2]
+        if len(args) > 3:
+            self.x = args[3]
+        if len(args) > 4:
+            self.y = args[4]
+    def __str__(self):
+        """Override __str__ method to return formatted string."""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id
+                                                       self.__x, self.__y,
+                                                       self.__width, self.__height)
+        
