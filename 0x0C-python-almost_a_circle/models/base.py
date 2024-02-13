@@ -74,8 +74,8 @@ class Base:
         if list_objs is None:
             return
 
-        filename = cls.__name__ + ".csv"with open(filename, 'w',
-                                                  newline='') as file:
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as file:
             writer = csv.writer(file)
             if cls.__name__ == "Rectangle":
                 for obj in list_objs:
