@@ -72,9 +72,10 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Serialize list_objs to CSV file."""
         if list_objs is None:
-        return
-        
-        filename = cls.__name__ + ".csv"with open(filename, 'w', newline='') as file:
+            return
+
+        filename = cls.__name__ + ".csv"with open(filename, 'w',
+                                                  newline='') as file:
             writer = csv.writer(file)
             if cls.__name__ == "Rectangle":
                 for obj in list_objs:
@@ -83,7 +84,7 @@ class Base:
             elif cls.__name__ == "Square":
                 for obj in list_objs:
                     writer.writerow([obj.id, obj.size, obj.x, obj.y])
-  
+
     @classmethod
     def load_from_file_csv(cls):
         """Deserialize instances from CSV file."""
