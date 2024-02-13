@@ -33,7 +33,8 @@ class Base:
             list_objs = []
         filename = cls.__name__ + ".json"
         with open(filename, 'w') as file:
-            file.write(cls.to_json_string([obj.to_dictionary() for obj in list_objs]))
+            file.write(cls.to_json_string([obj.to_dictionary()
+                       for obj in list_objs]))
 
     @staticmethod
     def from_json_string(json_string):
@@ -47,11 +48,11 @@ class Base:
     def create(cls, **dictionary):
         """Create instance with attributes set from dictionary."""
         if cls.__name__ == "Rectangle":
-            dummy_instance = cls(1, 1)  # Dummy Rectangle instance
+            dummy_instance = cls(1, 1)
         elif cls.__name__ == "Square":
-            dummy_instance = cls(1)  # Dummy Square instance
+            dummy_instance = cls(1)
 
-        dummy_instance.update(**dictionary)  # Update attributes using dictionary
+        dummy_instance.update(**dictionary)
         return dummy_instance
 
     @classmethod
@@ -62,7 +63,8 @@ class Base:
             with open(filename, 'r') as file:
                 data = file.read()
                 dictionaries = cls.from_json_string(data)
-                return [cls.create(**dictionary) for dictionary in dictionaries]
+                return [cls.create(**dictionary)
+                        for dictionary in dictionaries]
         except FileNotFoundError:
             return []
 
@@ -74,7 +76,8 @@ class Base:
             writer = csv.writer(file)
             if cls.__name__ == "Rectangle":
                 for obj in list_objs:
-                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    writer.writerow([obj.id, obj.width, obj.height,
+                                    obj.x, obj.y])
             elif cls.__name__ == "Square":
                 for obj in list_objs:
                     writer.writerow([obj.id, obj.size, obj.x, obj.y])
@@ -88,13 +91,15 @@ class Base:
             reader = csv.reader(file)
             for row in reader:
                 if cls.__name__ == "Rectangle":
-                    instance = cls(int(row[1]), int(row[2]), int(row[3]), int(row[4]), int(row[0]))
+                    instance = cls(int(row[1]), int(row[2]), int(row[3]),
+                                   int(row[4]), int(row[0]))
                 elif cls.__name__ == "Square":
-                    instance = cls(int(row[1]), int(row[2]), int(row[3]), int(row[0]))
+                    instance = cls(int(row[1]), int(row[2]),
+                                   int(row[3]), int(row[0]))
                 instances.append(instance)
         return instances
 
-     @staticmethod
+    @staticmethod
     def draw(list_rectangles, list_squares):
         """Draw all the Rectangles and Squares."""
         screen = turtle.Screen()
@@ -106,7 +111,7 @@ class Base:
             turtle.penup()
             turtle.goto(rectangle.x, rectangle.y)
             turtle.pendown()
-            turtle.color("blue")  # Example color
+            turtle.color("blue")
             turtle.begin_fill()
             for _ in range(2):
                 turtle.forward(rectangle.width)
@@ -120,7 +125,7 @@ class Base:
             turtle.penup()
             turtle.goto(square.x, square.y)
             turtle.pendown()
-            turtle.color("red")  # Example color
+            turtle.color("red")
             turtle.begin_fill()
             for _ in range(4):
                 turtle.forward(square.size)

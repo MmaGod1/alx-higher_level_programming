@@ -105,14 +105,15 @@ class Rectangle(Base):
         """Return dictionary representation of Rectangle."""
         return {
             'id': self.id,
-            'width': self.width,    
-            'height': self.height,  
-            'x': self.x,    
-            'y': self.y  
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
         }
 
     def __str__(self):
         """Override __str__ method to return formatted string."""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.__x, self.__y,
-                                                       self.__width, self.__height)
+                                                       self.__width,
+                                                       self.__height)
