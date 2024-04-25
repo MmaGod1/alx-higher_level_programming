@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-"""This script defines a function to find a peak in an unsorted list of integers."""
+"""It defines a function to find a peak in an unsorted list of integers."""
 
 
 def find_peak(int_list):
     """Finds a peak in the given list of integers."""
-    
+
     if int_list is None or int_list == []:
         return None
-    
+
     low = 0
     high = len(int_list)
     mid = ((high - low) // 2) + low
     mid = int(mid)
-    
+
     if high == 1:
         return int_list[0]
     if high == 2:
