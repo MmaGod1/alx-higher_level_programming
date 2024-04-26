@@ -9,14 +9,16 @@ import sys
 
 if __name__ == "__main__":
     username = sys.argv[1]
-    password = sys.argv[2]
+    token = sys.argv[2]
 
     url = 'https://api.github.com/user'
-    response = requests.get(url, auth=(username, password))
+    headers = {'Authorization': f'token {token}'}
+    
+    response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         data = response.json()
         user_id = data.get('id')
         print(user_id)
     else:
-        print("Error:", response.status_code)
+        print(None)
