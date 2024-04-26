@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     url = 'https://api.github.com/user'
     headers = {'Authorization': f'token {token}'}
-    
+
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
