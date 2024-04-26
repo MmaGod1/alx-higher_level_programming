@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This module uses the GitHub API to display the user's id using Basic Authentication with a personal access token.
+This module uses the GitHub API to display the user's
+id using Basic Authentication with a personal access token.
 """
 
 import requests
@@ -12,7 +13,7 @@ if __name__ == "__main__":
 
     url = 'https://api.github.com/user'
     response = requests.get(url, auth=(username, password))
-    
+
     if response.status_code == 200:
         data = response.json()
         user_id = data.get('id')

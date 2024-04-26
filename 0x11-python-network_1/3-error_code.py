@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module sends a request to a URL and displays the body of the response (decoded in utf-8), handling urllib.error.HTTPError exceptions.
+This module sends a request to a URL and displays the body of the response.
 """
 
 import urllib.request

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module fetches https://alx-intranet.hbtn.io/status using the requests package.
+it fetches https://alx-intranet.hbtn.io/status using the requests package.
 """
 
 import requests
